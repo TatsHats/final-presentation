@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Change Detection Strategyin Angular</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+          <!-- Слайд 1: Заголовок -->
+          <section>
+            <h1>Change Detection Strategy<br>in Angular</h1>
+            <h3>Tatsiana Hatskaya</h3>
+          </section>
+
+          <!-- Слайд 2: Что такое Change Detection Strategy? -->
+          <section>
+            <h2>What is it?</h2>
+            <p>In Angular, the Change Detection Strategy is the way the framework 
+                decides if it needs to update the user interface when data changes.</p>
+          </section>
+
+          <!-- Слайд 3: Зачем нам это нужно? -->
+          <section>
+            <h2>Why is it needed?</h2>
+            <p>When we change variables in a component, Angular needs to know if it 
+                should update the HTML. For example, if the user's name changes:</p>
+                <div class="example-name">
+                    <img src="./img/Screenshot_2.png" alt="example">
+                </div>
+          </section>
+
+          <!-- Слайд 4: Какие стратегии существуют? -->
+          <section>
+            <h2>What strategies exist?</h2>
+            <div class="strategy-section">
+                <img src="./img/Screenshot_1.png" alt="example">
+          </section>
+
+          <!-- Слайд 5: Что такое ChangeDetectionStrategy.Default? -->
+          <section>
+            <h2>What is ChangeDetectionStrategy.Default?</h2>
+            <p>Default strategy:<br><br></p>
+            <h3>"Check everything, all the time!<br>
+                If anything sneezes — update the HTML!"</h3>
+          </section>
+
+          <!-- Слайд 6: Как работает Default? -->
+          <section>
+            <h2>How it works:</h2>
+            <ul>
+              <li>Angular builds a tree of components.</li>
+              <li>When something changes, it checks the whole tree.</li>
+            </ul>
+            <div>
+                <video src="./img/animation.gif.mp4" autoplay loop muted playsinline></video>
+            </div>
+          </section>
+
+          <!-- Слайд 7: Что может вызвать проверку? -->
+          <section>
+            <h2>What can trigger a check?</h2>
+            <ul>
+              <li>User actions</li>
+              <li>Variable change</li>
+              <li>HTTP requests</li>
+              <li>Timers, Promises, async events</li>
+            </ul>
+          </section>
+
+          <!-- Слайд 8: Проблемы с производительностью -->
+          <section>
+            <h2>Performance issues with Default</h2>
+            <p>In large apps, checking everything can slow down performance.</p>
+          </section>
+      
+          <!-- Слайд 9: Что такое ChangeDetectionStrategy.OnPush? -->
+          <section>
+            <h2>What is ChangeDetectionStrategy.OnPush?</h2>
+            <p>OnPush: Checks components only when needed.</p>
+          </section>
+      
+          <!-- Слайд 10: Как работает OnPush? -->
+          <section>
+            <h2>How it works:</h2>
+            <ul>
+              <li>Checks when new data is passed via @Input()</li>
+              <li>Checks when an event occurs inside the component</li>
+              <li>Manual trigger of change detection</li>
+            </ul>
+          </section>
+      
+          <!-- Слайд 11: Пример использования OnPush -->
+          <section>
+            <h2>Example: OnPush</h2>
+            <p>Angular only checks the component when @Input changes or an event occurs.</p>
+          </section>
+      
+          <!-- Слайд 12: Работа с неизменяемыми объектами -->
+          <section>
+            <h2>Working with immutable objects</h2>
+            <p>OnPush requires immutable data to perform fast reference checks.</p>
+          </section>
+      
+          <!-- Слайд 13: Пример с immutable объектами -->
+          <section>
+            <h2>Example with immutable data</h2>
+            <p>Changing the reference triggers the update in the component.</p>
+          </section>
+      
+          <!-- Слайд 14: Обработка событий внутри компонента -->
+          <section>
+            <h2>Event handling inside the component</h2>
+            <p>Events can trigger change detection even with OnPush strategy.</p>
+          </section>
+      
+          <!-- Слайд 15: Асинхронные операции -->
+          <section>
+            <h2>Async operations with OnPush</h2>
+            <p>Async operations do not trigger change detection unless an event occurs.</p>
+          </section>
+      
+          <!-- Слайд 16: Ручная детекция изменений -->
+          <section>
+            <h2>Manual change detection</h2>
+            <p>Use ChangeDetectorRef to manually trigger change detection.</p>
+          </section>
+      
+          <!-- Слайд 17: Важность создания новых объектов -->
+          <section>
+            <h2>Creating new objects</h2>
+            <p>OnPush requires you to create new objects to trigger change detection.</p>
+          </section>
+
+          <!-- Слайд 18: Заключение -->
+          <section>
+            <h2>Conclusion</h2>
+            <p>OnPush improves performance by reducing unnecessary checks.</p>
+          </section>
+
+          <!-- Слайд 19: Таблица-сравнение Default и OnPush -->
+          <section>
+            <h2>Summary: Default vs OnPush</h2>
+            <table>
+              <tr>
+                <th>Feature</th>
+                <th>Default</th>
+                <th>OnPush</th>
+              </tr>
+              <tr>
+                <td>When Angular checks</td>
+                <td>After any change</td>
+                <td>Only after @Input or events</td>
+              </tr>
+              <tr>
+                <td>Automatic updates</td>
+                <td>Yes</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Performance</td>
+                <td>Less efficient</td>
+                <td>More efficient</td>
+              </tr>
+            </table>
+          </section>
+        </div>
+      </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="custom.js"></script>
+    <script>
+    Reveal.initialize();
+    </script>
+</body>
+</html>
