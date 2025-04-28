@@ -77,6 +77,7 @@
           <section>
             <h2>Performance issues with Default</h2>
             <p>In large apps, checking everything can slow down performance.</p>
+            <img src="./img/Screenshot_3.png" alt="img slide 8">
           </section>
       
           <!-- Слайд 9: Что такое ChangeDetectionStrategy.OnPush? -->
@@ -87,63 +88,107 @@
       
           <!-- Слайд 10: Как работает OnPush? -->
           <section>
-            <h2>How it works:</h2>
+            <h2>When will Angular update a component with OnPush?</h2>
             <ul>
-              <li>Checks when new data is passed via @Input()</li>
-              <li>Checks when an event occurs inside the component</li>
-              <li>Manual trigger of change detection</li>
+              <li>When the input properties (@Input) change.</li>
+              <li>When an event inside the component happens (for example, a mouse click).</li>
+              <li>When you manually trigger a check using ChangeDetectorRef.detectChanges().</li>
             </ul>
           </section>
       
-          <!-- Слайд 11: Пример использования OnPush -->
+          <!-- Слайд 11: Важное замечание по OnPush -->
           <section>
-            <h2>Example: OnPush</h2>
-            <p>Angular only checks the component when @Input changes or an event occurs.</p>
+            <h2>Important Note</h2>
+            <p>Asynchronous operations (like setTimeout, Promise, or HTTP requests)
+                do not automatically trigger updates for a component with OnPush.
+                This means that when working with async data, you need to manually 
+                "trigger" Angular to check for changes or properly update the input data.</p>
           </section>
       
-          <!-- Слайд 12: Работа с неизменяемыми объектами -->
-          <section>
-            <h2>Working with immutable objects</h2>
-            <p>OnPush requires immutable data to perform fast reference checks.</p>
-          </section>
-      
-          <!-- Слайд 13: Пример с immutable объектами -->
-          <section>
-            <h2>Example with immutable data</h2>
-            <p>Changing the reference triggers the update in the component.</p>
-          </section>
-      
-          <!-- Слайд 14: Обработка событий внутри компонента -->
-          <section>
-            <h2>Event handling inside the component</h2>
-            <p>Events can trigger change detection even with OnPush strategy.</p>
-          </section>
-      
-          <!-- Слайд 15: Асинхронные операции -->
-          <section>
-            <h2>Async operations with OnPush</h2>
-            <p>Async operations do not trigger change detection unless an event occurs.</p>
-          </section>
-      
-          <!-- Слайд 16: Ручная детекция изменений -->
-          <section>
-            <h2>Manual change detection</h2>
-            <p>Use ChangeDetectorRef to manually trigger change detection.</p>
-          </section>
-      
-          <!-- Слайд 17: Важность создания новых объектов -->
-          <section>
-            <h2>Creating new objects</h2>
-            <p>OnPush requires you to create new objects to trigger change detection.</p>
-          </section>
-
-          <!-- Слайд 18: Заключение -->
+          <!-- Слайд 12: Вывод -->
           <section>
             <h2>Conclusion</h2>
-            <p>OnPush improves performance by reducing unnecessary checks.</p>
+            <p>ChangeDetectionStrategy.OnPush is a way to tell Angular:
+                "Don't check me without a reason. I'll tell you when I need to be updated."</p>
           </section>
-
-          <!-- Слайд 19: Таблица-сравнение Default и OnPush -->
+      
+          <!-- Слайд 13: Таблица плюсы и минусы Default -->
+          <section>
+            <h2>Default: Pros and Cons</h2>
+            <table border="1" cellpadding="8" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Pros</th>
+                    <th>Cons</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Easy to use: no need to configure anything.</td>
+                    <td>Low performance in large applications.</td>
+                  </tr>
+                  <tr>
+                    <td>Good for small projects or few components.</td>
+                    <td>Entire component tree is checked even for local changes.</td>
+                  </tr>
+                  <tr>
+                    <td>No risk of forgetting manual updates.</td>
+                    <td>Can cause unnecessary calls and re-renders.</td>
+                  </tr>
+                </tbody>
+              </table>
+          </section>
+      
+          <!-- Слайд 14: Таблица плюсы и минусы OnPush -->
+          <section>
+            <h2>OnPush: Pros and Cons</h2>
+            <table border="1" cellpadding="8" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Pros</th>
+                    <th>Cons</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Excellent performance optimization.</td>
+                    <td>You must carefully manage how you pass data.</td>
+                  </tr>
+                  <tr>
+                    <td>Component updates only when truly necessary, avoiding extra re-renders.</td>
+                    <td>Requires more discipline (you can't just mutate objects — you must create new ones).</td>
+                  </tr>
+                  <tr>
+                    <td>You have full control and explicitly manage updates.</td>
+                    <td>If used incorrectly, data may not update, and you might not notice immediately.</td>
+                  </tr>
+                </tbody>
+              </table></p>
+          </section>
+      
+          <!-- Слайд 15: Когда использовать Default -->
+          <section>
+            <h2>When to use Default:</h2>
+            <ul>
+                <li>You frequently mutate objects.</li>
+                <li>There is a lot of logic in templates.</li>
+                <li>The project is small.</li>
+                <li>Automatic updates are required.</li>
+            </ul>
+          </section>
+      
+          <!-- Слайд 16: Когда использовать OnPush -->
+          <section>
+            <h2>When to use OnPush:</h2>
+            <ul>
+                <li>You work with immutable data.</li>
+                <li>High performance is required.</li>
+                <li>Components are simple and presentational.</li>
+                <li>You use RxJS and the async pipe.</li>
+            </ul>
+          </section>
+      
+          <!-- Слайд 17: Таблица-сравнение Default и OnPush -->
           <section>
             <h2>Summary: Default vs OnPush</h2>
             <table>
