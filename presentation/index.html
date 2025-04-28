@@ -114,7 +114,7 @@
       
           <!-- Слайд 13: Таблица плюсы и минусы Default -->
           <section>
-            <h2>Default: Pros and Cons</h2>
+            <h3>Default: Pros and Cons</h3>
             <table border="1" cellpadding="8" cellspacing="0">
                 <thead>
                   <tr>
@@ -141,7 +141,7 @@
       
           <!-- Слайд 14: Таблица плюсы и минусы OnPush -->
           <section>
-            <h2>OnPush: Pros and Cons</h2>
+            <h3>OnPush: Pros and Cons</h3>
             <table border="1" cellpadding="8" cellspacing="0">
                 <thead>
                   <tr>
@@ -190,29 +190,53 @@
       
           <!-- Слайд 17: Таблица-сравнение Default и OnPush -->
           <section>
-            <h2>Summary: Default vs OnPush</h2>
+            <h3>Summary: Default vs OnPush</h3>
             <table>
-              <tr>
-                <th>Feature</th>
-                <th>Default</th>
-                <th>OnPush</th>
-              </tr>
-              <tr>
-                <td>When Angular checks</td>
-                <td>After any change</td>
-                <td>Only after @Input or events</td>
-              </tr>
-              <tr>
-                <td>Automatic updates</td>
-                <td>Yes</td>
-                <td>No</td>
-              </tr>
-              <tr>
-                <td>Performance</td>
-                <td>Less efficient</td>
-                <td>More efficient</td>
-              </tr>
-            </table>
+                <thead>
+                  <tr>
+                    <th>Characteristic</th>
+                    <th>.Default</th>
+                    <th>.OnPush</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>When does Angular check the component?</td>
+                    <td>On any change in the application</td>
+                    <td>Only on incoming @Input() or events</td>
+                  </tr>
+                  <tr>
+                    <td>Automatic template update</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                  </tr>
+                  <tr>
+                    <td>Response to object mutation</td>
+                    <td>Yes (even if the object didn't change)</td>
+                    <td>No (new object is required)</td>
+                  </tr>
+                  <tr>
+                    <td>Is it necessary to create a new object?</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                  </tr>
+                  <tr>
+                    <td>Performance</td>
+                    <td>Less efficient</td>
+                    <td>More efficient</td>
+                  </tr>
+                  <tr>
+                    <td>Update management</td>
+                    <td>Completely automatic</td>
+                    <td>Partly manual</td>
+                  </tr>
+                  <tr>
+                    <td>Suitable for</td>
+                    <td>Small or simple components</td>
+                    <td>Large, frequently updated components</td>
+                  </tr>
+                </tbody>
+              </table>
           </section>
         </div>
       </div>
