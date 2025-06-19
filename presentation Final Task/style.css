@@ -1,0 +1,44 @@
+.reveal h1 {
+    margin-bottom: 10px;
+    margin-top: 50px;
+    font-size: 3rem;
+}
+
+.reveal h2 {
+  margin-top: 50px;
+  font-size: 2rem;
+}
+
+.reveal p, ul, li {
+  font-size: 1.5rem;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    font-size: 0.6em;
+  }
+
+  thead {
+    background-color: #333;
+    color: white;
+  }
+
+  th, td {
+    padding: 15px 20px;
+    text-align: left;
+    border: 1px solid #444;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #444;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #555;
+  }
+
+  tbody tr:hover {
+    background-color: #666;
+  }
