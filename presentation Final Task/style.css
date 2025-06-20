@@ -9,6 +9,10 @@
   font-size: 2rem;
 }
 
+.about {
+  width: 700px;
+}
+
 .reveal p, ul, li {
   font-size: 1.5rem;
 }

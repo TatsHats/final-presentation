@@ -1,0 +1,239 @@
+@font-face {
+  font-family: 'AveriaLibre-Regular';
+  src: url('./assets/fonts/AveriaLibre.ttf') format('truetype');
+}
+
+:root {
+  --primary-color: rgb(240, 240, 240);
+  --button: rgb(43, 42, 42);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+  }
+
+.appContainer {
+  font-family: AveriaLibre-Regular, sans-serif;
+  margin: 10px auto;
+  padding: 20px 0;
+  display: flex;
+  position: relative;
+  background-image: url('./assets/images/background.png');
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  max-width: 1000px;
+  width: 90%;
+  height: 90vh;
+  border: 1px solid black;
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.containerGarage {
+  width: 100%;
+}
+
+.settingsEndInfo {
+  display: flex;
+  justify-content: space-around;
+  margin: 6px auto 10px;
+}
+
+.infoOfPage {
+  display: flex;
+  font-size: 24px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.navigationPanel {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 30px;
+}
+
+.button {
+  font-family: AveriaLibre-Regular, sans-serif;
+  padding: 7px 10px;
+  font-size: 16px;
+  width: 70px;
+  background-color: var(--button);
+  color: white;
+  cursor: pointer;
+  margin: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+  .button:hover {
+    background-color: #45a049;
+  }
+  .reset:hover, .removeButton:hover, .stopButton:hover {
+    background-color: #be3636;
+  }
+
+.buttonPage {
+  width: 160px;
+  margin: 0 10px;
+}
+
+.inputPanel {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.raceBts {
+  width: 240px;
+}
+
+.input {
+  background-color: var(--primary-color);
+  padding: 7px 10px;
+  width: 120px;
+}
+
+.colorInput {
+  padding: 0;
+  border: 2px solid black;
+  height: 32px;
+}
+
+.buttonGenerateCars {
+  width: 220px;
+}
+
+.buttonCar, .buttonEngine {
+  padding: 2px;
+  margin: 1px;
+}
+
+.buttonCar {
+  width: 70px;
+}
+
+.race, .reset {
+  width: 100px;
+}
+
+.buttonEngine {
+  width: 26px;
+}
+
+.car, .car img {
+  width: 80px;
+  height: 40px;
+}
+
+.car {
+  position: absolute;
+  transition: transform 2s ease-in-out;
+  left: 106px;
+}
+
+.carName {
+  position: relative;
+  left: 90px;
+  font-size: 14px;
+}
+
+.namePage, .numberPage {
+  font-size: 30px;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.carContainer {
+  display: flex;
+  align-items: center;
+  border-top: 3px dashed black;
+  background-color: rgba(160, 160, 160, 0.9);
+}
+
+.carContainer:last-child {
+  display: flex;
+  border-bottom: 3px dashed black;
+}
+
+.rightButton, .leftButton {
+  padding: 0 10px;
+  font-size: 20px;
+  width: 70px;
+  margin: 5px;
+}
+
+  .paginationPanel {
+    position: absolute;
+    bottom: 20px;
+    left: 40%;
+  }
+
+.finishImg {
+  position: absolute;
+  right: 100px;
+  width: 15px;
+  height: auto;
+}
+
+.winnerText {
+  background-color: var(--button);
+  font-size: 2rem;
+  color: white;
+  position: absolute;
+  top: 45%;
+  left: 40%;
+  padding: 10px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 1), 0 10px 10px rgba(0, 0, 0, 0.7);
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.button.disabled:hover {
+  background-color: var(--button);
+}
+
+.reset.disabled:hover,
+.removeButton.disabled:hover,
+.stopButton.disabled:hover {
+  background-color: var(--button);
+}
+
+
+/* ------------------------ containerWinners -------------------------- */
+.containerWinners {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.table {
+  width: 100%;
+  margin: 20px auto;
+  background-color: rgba(160, 160, 160, 0.9);
+  text-align: center;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+}
+
+.table th {
+  width: 120px;
+  border-bottom: 2px solid black;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.carWin, .carWin img {
+  width: 60px;
+  height: 29.75px;
+}

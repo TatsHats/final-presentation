@@ -1,0 +1,319 @@
+@font-face {
+    font-family: 'Overlock-Regular';
+    src: url('./assets/fonts/Overlock-Regular.ttf') format('truetype');
+}
+  
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Overlock-Regular';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./assets/images/bg.avif');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/*----------------- Page containers and general settings ---------------*/
+
+.loginContainer, .errorContainer {
+    margin: 20vh auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 400px;
+    height: 250px;
+    font-size: 18px;
+    background-color: rgb(204, 212, 249);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.mainContainer, .infoContainer {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1000px;
+    height: 90vh;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.button {
+    font-family: 'Overlock-Regular';
+    padding: 8px 15px;
+    border-radius: 5px;
+    width: 100px;
+    background-color: white;
+    border: 1px solid black;
+    transition: background-color 0.3s;
+    margin-top: auto;
+    font-size: 16px;
+    cursor: pointer;
+}
+    .button:hover {
+        background-color: rgb(73, 25, 146);
+        color: white;
+        border: 1px solid rgb(73, 25, 146);
+    }
+
+
+/*----------------------- Login page --------------------*/
+
+.infoContainer {
+    padding-bottom: 30px;
+}
+.namePage {
+    margin: 10px;
+}
+
+.buttonsContainer {
+    display: flex;
+    margin: 0 auto;
+    margin-top: auto;
+    gap: 10%;
+}
+
+.buttonsContainer .button {
+    width: 140px;
+}
+
+.button.error {
+    cursor: default;
+    pointer-events: none;
+    color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.errorField {
+    color: brown;
+    margin-top: 10px;
+}
+
+.inputName, .inputPassword {
+    margin: 5px 10px;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.inputName {
+    margin-left: 32px;
+}
+
+
+/*----------------------- Info page --------------------*/
+
+.contentInfo {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 500px;
+}
+
+.linkGitHubAutor {
+    text-align: center;
+    margin: 30px auto;
+    font-size: 20px;
+    font-family: 'Overlock-Regular';
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.linkGitHubAutor:hover {
+    color: rgb(73, 25, 146);
+}
+
+
+/*----------------------- Main (chat) page --------------------*/
+
+.mainHeader, .headerChat, .mainFooter{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.mainHeader {
+    font-size: 16px;
+    line-height: 0;
+    padding: 10px;
+}
+
+.buttonsContainerMain {
+    display: flex;
+    gap: 10px;
+}
+
+.main {
+    display: flex;
+    padding: 0 20px;
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.usersField, .chatField {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2),
+                inset 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --------- left */
+.usersField {
+    width: 25%;
+    justify-content: flex-start;
+    overflow-y: auto;
+}
+
+.userBlock {
+  padding: 1px 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.activeUser {
+    color: green;
+    font-weight: 600;
+}
+
+.inactiveUser {
+    color: rgb(157, 0, 0);
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+
+/* --------- rigth */
+.headerChat {
+    border-bottom: 1px solid black;
+    margin-bottom: auto;
+}
+
+
+.chatField {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 100%;
+}
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+}
+
+.inputContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid black;
+    padding-top: 10px;
+}
+
+.inputContainer input {
+    padding: 9px;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 100%;
+}
+
+
+/* --------- Messeges */
+.myMessage, .incomingMessage {
+    display: flex;
+    flex-direction: column;
+    padding: 7px;
+    width: 80%;
+    margin: 5px 0;
+}
+
+.incomingMessage {
+    background-color: rgb(202, 152, 249);
+    border-radius: 15px 15px 15px 0;
+    align-self: flex-start;
+}
+
+.myMessage {
+    background-color: rgb(249, 213, 249);
+    border-radius: 15px 15px 0 15px;
+    align-self: flex-end;
+}
+
+.imgMessage {
+    width: 15px;
+    height: 15px;
+    align-self: flex-end;
+}
+
+.deleteButton, .editButton {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+
+.dateMessage {
+    font-size: 12px;
+    text-align: right;
+}
+
+
+/* --------- Footer */
+.mainFooter {
+    padding: 10px;
+    font-size: 18px;
+    font-family: 'Overlock-Regular';
+}
+
+.mainFooter a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.mainFooter a:hover {
+    color: rgb(73, 25, 146);
+}
+
+.mainFooter label {
+    font-weight: 600;
+}
+
+
+/*----------------------- media --------------------*/
+
+@media (max-width: 750px) {
+    .imgAutor {
+        display: none;
+    }
+}
